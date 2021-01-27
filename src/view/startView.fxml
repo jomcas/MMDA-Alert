@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="481.0" prefWidth="394.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mmdaalert.StartViewController">
+    <children>
+        <Button fx:id="startBtn" layoutX="138.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleStartBtn" prefHeight="31.0" prefWidth="118.0" styleClass="primary" stylesheets="@../style/bootstrap3.css" text="Start">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="exitBtn" layoutX="137.0" layoutY="407.0" mnemonicParsing="false" onAction="#handleExBtn" prefHeight="32.0" prefWidth="118.0" styleClass="danger" stylesheets="@../style/bootstrap3.css" text="Exit">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Button>
+        <Label layoutX="100.0" layoutY="78.0" prefHeight="39.0" prefWidth="293.0" text="Data Visualization Of @MMDA Tweets" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="109.0" layoutY="37.0" prefHeight="51.0" prefWidth="98.0" styleClass="info" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" text="MMDA" textFill="#ff2424">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="208.0" layoutY="37.0" prefHeight="51.0" prefWidth="105.0" styleClass="info" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" text="ALERT" textFill="#0038a8">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="283.0" layoutY="449.0" text="Castañeda 2019">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="192.0" fitWidth="200.0" layoutX="101.0" layoutY="131.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/Metro_Manila_Development_Authority_(MMDA).svg.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

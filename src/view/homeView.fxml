@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="921.0" prefWidth="1046.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mmdaalert.HomeViewController">
+    <children>
+        <Pane layoutX="29.0" layoutY="114.0" prefHeight="532.0" prefWidth="954.0">
+            <children>
+                <TabPane layoutX="18.0" layoutY="34.0" prefHeight="526.0" prefWidth="946.0" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab fx:id="overviewTab" text="Overview">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="427.0" prefWidth="796.0" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css">
+                                    <children>
+                                        <Label fx:id="tweetsNumberLbl" layoutX="58.0" layoutY="25.0" prefHeight="107.0" prefWidth="132.0" stylesheets="@../style/bootstrap3.css" text="0" textFill="#0038a8">
+                                            <font>
+                                                <Font size="79.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="219.0" layoutY="50.0" prefHeight="96.0" prefWidth="315.0" text="Number of Recognized Tweets" textFill="#ff2424">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <TableView fx:id="accidentsCountTable" layoutX="85.0" layoutY="154.0" prefHeight="269.0" prefWidth="345.0">
+                                            <columns>
+                                                <TableColumn fx:id="accidentsColumn" prefWidth="237.0" text="Accidents" />
+                                                <TableColumn fx:id="accidentsCountColumn" minWidth="6.39996337890625" prefWidth="107.0" text="No." />
+                                            </columns>
+                                        </TableView>
+                                        <TableView fx:id="vehicleCountTable" layoutX="560.0" layoutY="156.0" prefHeight="273.0" prefWidth="349.0">
+                                            <columns>
+                                                <TableColumn fx:id="vehiclesColumn" prefWidth="247.0" text="Vehicles" />
+                                                <TableColumn fx:id="vehiclesCountColumn" minWidth="6.39996337890625" prefWidth="101.0" text="No." />
+                                            </columns>
+                                        </TableView>
+                                        <Label fx:id="timeLbl" layoutX="677.0" layoutY="25.0" prefHeight="73.0" prefWidth="196.0" text="HH: MM: SS" textAlignment="JUSTIFY">
+                                            <font>
+                                                <Font size="35.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="dateLbl" alignment="CENTER" layoutX="640.0" layoutY="91.0" prefHeight="39.0" prefWidth="282.0" text="Date">
+                                            <font>
+                                                <Font size="22.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="barGraphTab" text="Bar Chart">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="790.0">
+                        <children>
+                           <TabPane layoutX="21.0" layoutY="14.0" prefHeight="467.0" prefWidth="918.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+                             <tabs>
+                               <Tab text="Time Comparison">
+                                 <content>
+                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                          <children>
+                                             <BarChart fx:id="timeBar" alternativeRowFillVisible="false" layoutX="33.0" layoutY="14.0" prefHeight="400.0" prefWidth="853.0" title="No. of Accidents Happened During AM and PM">
+                                               <xAxis>
+                                                 <CategoryAxis />
+                                               </xAxis>
+                                               <yAxis>
+                                                 <NumberAxis side="LEFT" />
+                                               </yAxis>
+                                             </BarChart>
+                                          </children></AnchorPane>
+                                 </content>
+                               </Tab>
+                                 <Tab text="Bound Comparison">
+                                   <content>
+                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                          <children>
+                                             <BarChart fx:id="boundBar" layoutX="35.0" layoutY="10.0" prefHeight="400.0" prefWidth="866.0" title="No. of Accidents in Every Bound">
+                                                <xAxis>
+                                                   <CategoryAxis side="BOTTOM" />
+                                                </xAxis>
+                                                <yAxis>
+                                                   <NumberAxis side="LEFT" />
+                                                </yAxis>
+                                             </BarChart>
+                                          </children>
+                                       </AnchorPane>
+                                   </content>
+                                 </Tab>
+                                 <Tab text="Lane Comparison">
+                                   <content>
+                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                          <children>
+                                             <BarChart fx:id="laneBar" layoutX="33.0" layoutY="14.0" prefHeight="400.0" prefWidth="852.0" title="No. of Lane Occupied Per Accident">
+                                                <xAxis>
+                                                   <CategoryAxis side="BOTTOM" />
+                                                </xAxis>
+                                                <yAxis>
+                                                   <NumberAxis side="LEFT" />
+                                                </yAxis>
+                                             </BarChart>
+                                          </children>
+                                       </AnchorPane>
+                                   </content>
+                                 </Tab>
+                             </tabs>
+                           </TabPane>
+                        </children>
+                     </AnchorPane>
+                        </Tab>
+                        <Tab fx:id="lineGraphTab" text="Line Chart">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="355.0" prefWidth="666.0">
+                           <children>
+                              <TabPane layoutX="15.0" prefHeight="481.0" prefWidth="911.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="Accident to Vehicle Correlation">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <LineChart fx:id="vehicleToAccidentsLine" layoutX="8.0" layoutY="14.0" prefHeight="398.0" prefWidth="911.0" title="Vehicles to Accidents">
+                                                  <xAxis>
+                                                    <CategoryAxis fx:id="line1X" label="Category" prefHeight="63.0" prefWidth="649.0" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis fx:id="line1Y" label="Count" side="LEFT" />
+                                                  </yAxis>
+                                                </LineChart>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="Accident to Vehicle %">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <LineChart fx:id="vehicleToAccidentsPercentLine" layoutX="8.0" layoutY="14.0" prefHeight="395.0" prefWidth="911.0" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" title="Percentage of Accidents">
+                                                   <xAxis>
+                                                      <CategoryAxis fx:id="line1X1" label="Category" prefHeight="69.0" prefWidth="652.0" side="BOTTOM" />
+                                                   </xAxis>
+                                                   <yAxis>
+                                                      <NumberAxis fx:id="line1Y1" label="Count" prefWidth="49.0" side="LEFT" />
+                                                   </yAxis>
+                                                </LineChart>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="Accidents Count During AM">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <LineChart fx:id="accidentTimeAMLine" layoutX="8.0" layoutY="14.0" prefHeight="395.0" prefWidth="911.0" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" title="Accident Counts on Every Hour in the Morning">
+                                                   <xAxis>
+                                                      <CategoryAxis fx:id="line1X11" label="Category" prefHeight="69.0" prefWidth="652.0" side="BOTTOM" />
+                                                   </xAxis>
+                                                   <yAxis>
+                                                      <NumberAxis fx:id="line1Y11" label="Count" prefWidth="49.0" side="LEFT" />
+                                                   </yAxis>
+                                                </LineChart>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab text="Accidents Count During PM">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <LineChart fx:id="accidentTimePMLine" layoutX="8.0" layoutY="14.0" prefHeight="395.0" prefWidth="919.0" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" title="Accident Counts on Every Hour in the Afternoon">
+                                                   <xAxis>
+                                                      <CategoryAxis fx:id="line1X111" label="Category" prefHeight="69.0" prefWidth="652.0" side="BOTTOM" />
+                                                   </xAxis>
+                                                   <yAxis>
+                                                      <NumberAxis fx:id="line1Y111" label="Count" prefWidth="49.0" side="LEFT" />
+                                                   </yAxis>
+                                                </LineChart>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="pieChartTab" text="Pie Chart">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <PieChart layoutX="145.0" layoutY="22.0" />
+                              <TabPane layoutX="14.0" layoutY="22.0" prefHeight="456.0" prefWidth="911.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="Accident">
+                                    <content>
+                                      <AnchorPane fx:id="accidentPiePane" minHeight="0.0" minWidth="0.0" prefHeight="404.0" prefWidth="934.0">
+                                             <children>
+                                                <PieChart fx:id="accidentPie" labelLineLength="25.0" layoutX="32.0" prefHeight="387.0" prefWidth="848.0" title="Accident" />
+                                                <Label fx:id="accidentPieLbl" layoutX="357.0" layoutY="321.0" prefHeight="82.0" prefWidth="271.0" text="Click to see the value." />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="Accidents AM">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="920.0">
+                                             <children>
+                                                <PieChart fx:id="accidentAMPie" layoutX="30.0" prefHeight="387.0" prefWidth="867.0" title="Accident Percentage in AM" />
+                                                <Label fx:id="accidentPieLAMbl" layoutX="352.0" layoutY="328.0" prefHeight="82.0" prefWidth="271.0" text="Click to see the value." />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="Accidents PM">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <PieChart fx:id="accidentPMPie" layoutX="59.0" prefHeight="387.0" prefWidth="853.0" title="Accident Percentage in PM" />
+                                                <Label fx:id="accidentPiePMLbl" layoutX="344.0" layoutY="327.0" prefHeight="82.0" prefWidth="271.0" text="Click to see the value." />
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="tweetsTab" text="Tweets">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                              <TabPane layoutX="19.0" layoutY="8.0" prefHeight="463.0" prefWidth="911.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="Raw Tweets">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="66.0" prefWidth="756.0">
+                                             <children>
+                                                <Label layoutX="384.0" layoutY="-5.0" prefHeight="18.0" prefWidth="279.0" text="List of Tweets">
+                                                   <font>
+                                                      <Font size="26.0" />
+                                                   </font>
+                                                </Label>
+                                                <ListView fx:id="tweetsList" layoutX="12.0" layoutY="30.0" prefHeight="344.0" prefWidth="889.0" />
+                                                <Button fx:id="clearBtn" layoutX="783.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleClearBtn" prefHeight="32.0" prefWidth="106.0" styleClass="warning" text="Clear Tweets" />
+                                                <Button fx:id="backupBtn" layoutX="652.0" layoutY="382.0" mnemonicParsing="false" onAction="#handleBackupBtn" prefHeight="10.0" prefWidth="114.0" styleClass="success" text="Backup Tweets" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="Categories Table">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tweetsCategoriesTbl" layoutX="22.0" layoutY="18.0" prefHeight="400.0" prefWidth="881.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="accidentTweetCol" prefWidth="160.0" text="Accident" />
+                                                    <TableColumn fx:id="placeTweetCol" minWidth="0.0" prefWidth="170.0" text="Place" />
+                                                      <TableColumn fx:id="boundTweetCol" minWidth="0.0" prefWidth="128.0" text="Bound" />
+                                                      <TableColumn fx:id="vehicleTweetCol" prefWidth="153.0" text="Vehicle" />
+                                                      <TableColumn fx:id="timeTweetCol" prefWidth="122.0" text="Time" />
+                                                      <TableColumn fx:id="noteTweetCol" prefWidth="147.0" text="Note" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+               <styleClass>
+                  <String fx:value="plain" />
+                  <String fx:value="middle" />
+               </styleClass>
+                </TabPane>
+            </children>
+        </Pane>
+        <Button fx:id="addFileBtn" layoutX="642.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleAddFileBtn" prefHeight="32.0" prefWidth="84.0" styleClass="primary" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" text="Add File" />
+        <Button fx:id="refreshBtn" layoutX="885.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleRefreshBtn" prefHeight="32.0" prefWidth="98.0" styleClass="success" stylesheets="@../style/bootstrap3.css" text="Refresh" />
+        <Label layoutX="173.0" layoutY="30.0" prefHeight="51.0" prefWidth="98.0" styleClass="info" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" text="MMDA" textFill="#ff2424">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font>
+        </Label>
+        <Label layoutX="174.0" layoutY="68.0" prefHeight="26.0" prefWidth="238.0" text="Data Visualization of @MMDA Tweets" textFill="#818c42">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+        </Label>
+        <Button fx:id="followBtn" layoutX="737.0" layoutY="696.0" mnemonicParsing="false" onAction="#handleFollowBtn" prefHeight="39.0" prefWidth="132.0" styleClass="info" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" text="Follow @MMDA" />
+        <Button fx:id="exitBtn" layoutX="887.0" layoutY="696.0" mnemonicParsing="false" onAction="#handleExitBtn" prefHeight="39.0" prefWidth="84.0" styleClass="danger" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" text="Exit" />
+      <CheckBox fx:id="streamChkBox" layoutX="489.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleStreamChkBox" prefHeight="32.0" prefWidth="132.0" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" text="Get Live Tweets">
+         <font>
+            <Font size="15.0" />
+         </font></CheckBox>
+      <Label layoutX="272.0" layoutY="30.0" prefHeight="51.0" prefWidth="105.0" styleClass="info" stylesheets="@../../../../jbootx-master/src/main/resources/bootstrap3.css" text="ALERT" textFill="#0038a8">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Pane layoutX="122.0" layoutY="759.0" prefHeight="39.0" prefWidth="822.0">
+         <children>
+            <Label layoutX="352.0" prefHeight="39.0" prefWidth="170.0" text="\@MMDA Latest Tweet:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="93.0" fitWidth="105.0" layoutX="55.0" layoutY="15.0">
+         <image>
+            <Image url="@/images/Metro_Manila_Development_Authority_(MMDA).svg.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="streamLbl" layoutX="423.0" layoutY="73.0" prefHeight="26.0" prefWidth="132.0" stylesheets="@bootstrap3.css" text=" ">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="genTweetsBtn" layoutX="745.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleGenTweetsBtn" prefHeight="32.0" prefWidth="132.0" styleClass="warning" stylesheets="@../style/bootstrap3.css" text="Generate Tweets" />
+      <Label fx:id="latestTweetLbl" layoutX="86.0" layoutY="828.0" prefHeight="32.0" prefWidth="911.0" text="Label" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mmdaalert.GenerateTweetsViewController">
+   <children>
+      <TextArea fx:id="genTweetsTxtArea" editable="false" layoutX="29.0" layoutY="63.0" prefHeight="287.0" prefWidth="544.0" promptText="Generated tweets will appear here" stylesheets="@../style/bootstrap3.css" wrapText="true" />
+      <Label layoutX="35.0" layoutY="24.0" prefHeight="28.0" prefWidth="174.0" text="Generate Tweets">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="315.0" layoutY="29.0" prefHeight="18.0" prefWidth="118.0" text="Number of Tweets:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tweetsNumberTf" layoutX="432.0" layoutY="23.0" prefHeight="28.0" prefWidth="67.0" stylesheets="@../style/bootstrap3.css" />
+      <Button fx:id="genBtn" layoutX="514.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleGenBtn" prefHeight="28.0" prefWidth="50.0" styleClass="primary" stylesheets="@../style/bootstrap3.css" text="OK" />
+      <Button fx:id="exportBtn" layoutX="386.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleExportBtn" styleClass="success" stylesheets="@../style/bootstrap3.css" text="Export as .txt" />
+      <Button fx:id="backBtn" layoutX="496.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleBackBtn" prefHeight="32.0" prefWidth="67.0" styleClass="danger" stylesheets="@../style/bootstrap3.css" text="Back" />
+   </children>
+</AnchorPane>
